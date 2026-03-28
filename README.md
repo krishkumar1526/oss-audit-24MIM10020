@@ -122,15 +122,19 @@ System Uptime: up 1 hour, 16 minutes
 Current Date/Time: 2026-03-28 19:48:14
 
 =========================================
+
 The Linux operating system is covered by
 the GNU General Public License (GPL v2).
+
 =========================================
 
 
 # Script 2 - FOSS Package Inspector
 
 =========================================
+
      FOSS PACKAGE INSPECTOR
+     
 =========================================
 
 ✓ python3 is installed.
@@ -156,7 +160,9 @@ The Four Freedoms of Free Software:
 # Script 3 - Disk and Permission Auditor
 
 =========================================
+
      DISK AND PERMISSION AUDITOR
+     
 =========================================
 
 Directory Audit Report
@@ -168,7 +174,9 @@ Directory Audit Report
 /tmp → Permissions: drwxrwxrwt root root | Size: 24K
 
 =========================================
+
 Python Configuration Directory Check
+
 =========================================
 /etc/python3 exists - Permissions: drwxr-xr-x root root
 
@@ -178,7 +186,9 @@ Audit completed: Sat Mar 28 19:41:29 UTC 2026
 # Script 4 - Log File Analyzer
 
 =========================================
+
         LOG FILE ANALYZER
+        
 =========================================
 
 Analyzing: /var/log/syslog
@@ -200,7 +210,9 @@ Analysis completed: Sat Mar 28 19:41:46 UTC 2026
 # Script 5 - Open Source Manifesto Generator
 
 =========================================
+
    OPEN SOURCE MANIFESTO GENERATOR
+   
 =========================================
 
 Answer three questions to create your manifesto.
@@ -214,7 +226,9 @@ Answer three questions to create your manifesto.
 Preview:
 --------
 =========================================
+
      MY OPEN SOURCE MANIFESTO
+     
 =========================================
 
 Created by: kri_001
@@ -232,11 +246,13 @@ That is why I would build AI and release
 it under an open-source license.
 
 =========================================
+
 The Four Freedoms of Free Software:
 0 - Run the program for any purpose
 1 - Study and modify the source code
 2 - Redistribute copies
 3 - Distribute modified versions
+
 =========================================
 
 
