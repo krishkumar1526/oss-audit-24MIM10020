@@ -1,0 +1,25 @@
+=========================================
+     MY OPEN SOURCE MANIFESTO
+=========================================
+
+Created by: kri_001
+Date: Sat Mar 28 19:50:29 UTC 2026
+
+I use Python every day. It reminds me that
+software can be built by anyone, for anyone.
+
+To me, freedom means Everything.
+It means having the right to study, modify,
+and share code without asking permission.
+
+I believe in building and sharing freely.
+That is why I would build AI and release
+it under an open-source license.
+
+=========================================
+The Four Freedoms of Free Software:
+0 - Run the program for any purpose
+1 - Study and modify the source code
+2 - Redistribute copies
+3 - Distribute modified versions
+=========================================
