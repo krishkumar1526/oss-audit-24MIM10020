@@ -1,10 +1,9 @@
 #!/bin/bash
 # Script 5: Open Source Manifesto Generator
 
-echo "========================================="
-echo "   OPEN SOURCE MANIFESTO GENERATOR"
-echo "========================================="
-echo ""
+source "$(dirname "$0")/lib/common.sh"
+
+print_header "   OPEN SOURCE MANIFESTO GENERATOR"
 echo "Answer three questions to create your manifesto."
 echo ""
 
@@ -16,9 +15,9 @@ DATE=$(date +"%Y-%m-%d")
 OUTPUT_FILE="manifesto_$(whoami)_$DATE.txt"
 
 cat > "$OUTPUT_FILE" << EOF
-=========================================
+$SEPARATOR
      MY OPEN SOURCE MANIFESTO
-=========================================
+$SEPARATOR
 
 Created by: $(whoami)
 Date: $(date)
@@ -34,13 +33,9 @@ I believe in building and sharing freely.
 That is why I would build $BUILD and release
 it under an open-source license.
 
-=========================================
-The Four Freedoms of Free Software:
-0 - Run the program for any purpose
-1 - Study and modify the source code
-2 - Redistribute copies
-3 - Distribute modified versions
-=========================================
+$SEPARATOR
+$(print_four_freedoms)
+$SEPARATOR
 EOF
 
 echo ""
@@ -49,4 +44,3 @@ echo ""
 echo "Preview:"
 echo "--------"
 cat "$OUTPUT_FILE"
-

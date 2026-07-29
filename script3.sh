@@ -1,18 +1,17 @@
 #!/bin/bash
 # Script 3: Disk and Permission Auditor
 
+source "$(dirname "$0")/lib/common.sh"
+
 DIRS=("/etc" "/var/log" "/home" "/usr/bin" "/tmp")
 
-echo "========================================="
-echo "     DISK AND PERMISSION AUDITOR"
-echo "========================================="
-echo ""
+print_header "     DISK AND PERMISSION AUDITOR"
 echo "Directory Audit Report"
 echo "----------------------"
 
 for DIR in "${DIRS[@]}"; do
     if [ -d "$DIR" ]; then
-        PERMS=$(ls -ld "$DIR" | awk '{print $1, $3, $4}')
+        PERMS=$(get_perms "$DIR")
         SIZE=$(du -sh "$DIR" 2>/dev/null | cut -f1)
         echo "$DIR → Permissions: $PERMS | Size: $SIZE"
     else
@@ -21,17 +20,15 @@ for DIR in "${DIRS[@]}"; do
 done
 
 echo ""
-echo "========================================="
+print_separator
 echo "Python Configuration Directory Check"
-echo "========================================="
+print_separator
 
 if [ -d "/etc/python3" ]; then
-    PERMS=$(ls -ld "/etc/python3" | awk '{print $1, $3, $4}')
-    echo "/etc/python3 exists - Permissions: $PERMS"
+    echo "/etc/python3 exists - Permissions: $(get_perms "/etc/python3")"
 else
     echo "/etc/python3 does not exist"
 fi
 
 echo ""
-echo "Audit completed: $(date)"
-
+print_completed "Audit completed"
