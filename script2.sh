@@ -1,7 +1,9 @@
 #!/bin/bash
 # Script 2: FOSS Package Inspector - Python Audit
+set -euo pipefail
 
 PACKAGE="python3"
+INSTALLED=0
 
 echo "========================================="
 echo "     FOSS PACKAGE INSPECTOR"
@@ -9,14 +11,17 @@ echo "========================================="
 echo ""
 
 if command -v python3 &>/dev/null; then
+    INSTALLED=1
     echo "✓ $PACKAGE is installed."
     echo ""
     echo "Version Information:"
-    python3 --version
+    if ! python3 --version; then
+        echo "Warning: could not determine $PACKAGE version." >&2
+    fi
     echo ""
-    echo "Location: $(which python3)"
+    echo "Location: $(command -v python3)"
 else
-    echo "✗ $PACKAGE is NOT installed."
+    echo "✗ $PACKAGE is NOT installed." >&2
 fi
 
 echo ""
@@ -32,3 +37,7 @@ echo "1 - Study and modify the source code"
 echo "2 - Redistribute copies"
 echo "3 - Distribute modified versions"
 
+# Propagate the audit result so callers can detect a missing package.
+if [ "$INSTALLED" -ne 1 ]; then
+    exit 1
+fi
