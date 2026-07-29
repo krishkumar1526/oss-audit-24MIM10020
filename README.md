@@ -256,6 +256,40 @@ The Four Freedoms of Free Software:
 =========================================
 
 
+# Testing
+
+A unit test suite covers all five scripts using [bats](https://github.com/bats-core/bats-core)
+(Bash Automated Testing System). Prior to this suite the scripts had **no test
+coverage at all** (0%); the suite now exercises the observable behaviour of every
+script, including both branches of the conditional logic.
+
+| Test file | Covers | Cases |
+|-----------|--------|-------|
+| `tests/script1.bats` | `script1.sh` | header, kernel/user/home fields, date format, GPL notice |
+| `tests/script2.bats` | `script2.sh` | installed + **not-installed** branches, philosophy section, four freedoms |
+| `tests/script3.bats` | `script3.sh` | header, all audited directories, perms/size fields, python config check, timestamp |
+| `tests/script4.bats` | `script4.sh` | missing-file error + exit code, case-insensitive counting, default/custom keyword, zero matches, last-5 tail |
+| `tests/script5.bats` | `script5.sh` | header, file creation, answer substitution, four freedoms, preview output |
+
+### Running the tests
+
+Install `bats` (once):
+
+```bash
+sudo apt-get install -y bats   # Debian/Ubuntu
+```
+
+Then run the suite:
+
+```bash
+./run_tests.sh
+# or directly:
+bats tests/
+```
+
+Tests also run automatically on every push and pull request via GitHub Actions
+(`.github/workflows/tests.yml`).
+
 # Dependencies
 All scripts use built-in Linux commands and require no external dependencies:
 
