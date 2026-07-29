@@ -1,14 +1,13 @@
 #!/bin/bash
 # Script 4: Log File Analyzer
 
+source "$(dirname "$0")/lib/common.sh"
+
 LOGFILE="$1"
 KEYWORD="${2:-error}"
 COUNT=0
 
-echo "========================================="
-echo "        LOG FILE ANALYZER"
-echo "========================================="
-echo ""
+print_header "        LOG FILE ANALYZER"
 
 if [ ! -f "$LOGFILE" ]; then
     echo "Error: File '$LOGFILE' not found."
@@ -32,5 +31,4 @@ echo "Last 5 matching lines:"
 echo "----------------------"
 grep -i "$KEYWORD" "$LOGFILE" | tail -5
 echo ""
-echo "Analysis completed: $(date)"
-
+print_completed "Analysis completed"

@@ -1,10 +1,9 @@
 #!/bin/bash
 # Script 1: System Identity Report
 
-echo "========================================="
-echo "       SYSTEM IDENTITY REPORT"
-echo "========================================="
-echo ""
+source "$(dirname "$0")/lib/common.sh"
+
+print_header "       SYSTEM IDENTITY REPORT"
 
 echo "Linux Distribution: $(cat /etc/os-release | grep "PRETTY_NAME" | cut -d'"' -f2)"
 echo "Kernel Version: $(uname -r)"
@@ -15,8 +14,7 @@ echo ""
 echo "System Uptime: $(uptime -p)"
 echo "Current Date/Time: $(date '+%Y-%m-%d %H:%M:%S')"
 echo ""
-echo "========================================="
+print_separator
 echo "The Linux operating system is covered by"
 echo "the GNU General Public License (GPL v2)."
-echo "========================================="
-
+print_separator

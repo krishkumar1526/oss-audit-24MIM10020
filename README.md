@@ -36,6 +36,7 @@ This repository contains 5 shell scripts that demonstrate practical Linux automa
 | `script2.sh` | **FOSS Package Inspector** - Checks if Python is installed, displays version information, and provides a case statement with philosophy notes about Python | `./script2.sh` |
 | `script3.sh` | **Disk and Permission Auditor** - Loops through important system directories and reports disk usage, owner, and permissions for each | `./script3.sh` |
 | `script4.sh` | **Log File Analyzer** - Reads a log file line by line, counts occurrences of a keyword (default: "error"), and displays the last 5 matching lines | `./script4.sh /var/log/syslog error` |
+| `lib/common.sh` | **Shared helpers** - Sourced by every script; provides `print_header`, `print_separator`, `print_four_freedoms`, `print_completed`, `get_perms` | sourced, not run directly |
 | `script5.sh` | **Open Source Manifesto Generator** - Interactive script that asks three questions and generates a personalized open-source philosophy statement saved to a text file | `./script5.sh` |
 
 ---
@@ -295,6 +296,7 @@ Python: 3.x (for Script 2 verification)
 
 oss-audit-24MIM10020/
 ├── README.md                    # Project documentation
+├── lib/common.sh                # Shared helper functions
 ├── script1.sh                   # System Identity Report
 ├── script2.sh                   # FOSS Package Inspector
 ├── script3.sh                   # Disk and Permission Auditor

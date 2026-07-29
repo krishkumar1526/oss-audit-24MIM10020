@@ -1,12 +1,11 @@
 #!/bin/bash
 # Script 2: FOSS Package Inspector - Python Audit
 
+source "$(dirname "$0")/lib/common.sh"
+
 PACKAGE="python3"
 
-echo "========================================="
-echo "     FOSS PACKAGE INSPECTOR"
-echo "========================================="
-echo ""
+print_header "     FOSS PACKAGE INSPECTOR"
 
 if command -v python3 &>/dev/null; then
     echo "✓ $PACKAGE is installed."
@@ -26,9 +25,4 @@ echo "License: Python Software Foundation (PSF) License"
 echo "Philosophy: Readability matters, community-driven"
 echo ""
 
-echo "The Four Freedoms of Free Software:"
-echo "0 - Run the program for any purpose"
-echo "1 - Study and modify the source code"
-echo "2 - Redistribute copies"
-echo "3 - Distribute modified versions"
-
+print_four_freedoms
