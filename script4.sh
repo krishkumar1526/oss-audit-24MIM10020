@@ -3,7 +3,6 @@
 
 LOGFILE="$1"
 KEYWORD="${2:-error}"
-COUNT=0
 
 echo "========================================="
 echo "        LOG FILE ANALYZER"
@@ -20,17 +19,13 @@ echo "Analyzing: $LOGFILE"
 echo "Searching for: '$KEYWORD'"
 echo ""
 
-while IFS= read -r LINE; do
-    if echo "$LINE" | grep -iq "$KEYWORD"; then
-        COUNT=$((COUNT + 1))
-    fi
-done < "$LOGFILE"
+COUNT=$(grep -icF -- "$KEYWORD" "$LOGFILE")
 
 echo "Found '$KEYWORD' $COUNT times"
 echo ""
 echo "Last 5 matching lines:"
 echo "----------------------"
-grep -i "$KEYWORD" "$LOGFILE" | tail -5
+grep -iF -- "$KEYWORD" "$LOGFILE" | tail -5
 echo ""
 echo "Analysis completed: $(date)"
 
